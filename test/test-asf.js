@@ -4,7 +4,7 @@ var fs = require('fs')
 var test = require('prova')
 
 test('asf', function (t) {
-  t.plan(24)
+  t.plan(25)
 
   var sample = (process.browser) ?
     new window.Blob([fs.readFileSync(__dirname + '/samples/asf.wma')])
@@ -23,6 +23,7 @@ test('asf', function (t) {
     t.strictEqual(result.disk.of, 0, 'disk of')
     t.strictEqual(result.genre[0], 'Rock', 'genre 0')
     t.strictEqual(result.duration, 245, 'duration')
+    t.strictEqual(result.duration_milliseconds, 244885, 'duration_milliseconds')
     t.end()
   }) // aliased tests
     .on('title', function (result) {
